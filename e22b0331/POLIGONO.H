@@ -1,0 +1,20 @@
+class Poligono{
+	private:
+	   int cantlados;
+	   int *longitud;
+	public:
+		Poligono(int,int *);
+		int obtenerCantLados();
+		int obtenerLongitud(int);
+		int calcularPerimetro();
+};
+class Triangulo:Poligono{
+	public:
+		Triangulo(int,int *);
+		int calcularSup();
+};
+class Cuadrado:Poligono{
+	public:
+		Cuadrado(int,int *);
+		int calcularSup();
+};

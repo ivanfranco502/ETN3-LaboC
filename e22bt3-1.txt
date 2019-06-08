@@ -1,0 +1,29 @@
+//------------------------------------------------------------------------------
+// Evaluación de Laboratorio II - Grupo B - (1/2) - Trimestre 3
+//------------------------------------------------------------------------------
+// Apellido/s, Nombre/s	:
+// Número de Cuenta	:
+//------------------------------------------------------------------------------
+// Enunciado:
+/*
+-	Hacer una clase llamada Poligono, con las propiedades privadas para
+	almacenar el largo de cada lado, y la cantidad de lados del mismo.
+	El método constructor por defecto debe recibir la cantidad de lados y el
+	largo de los lados. El constructor debe llamar a un método privado que será
+	el encargado de representar gráficamente al polígono.
+	Deben existir los métodos para la consulta de los valores de las propiedades.
+	Un método debe permitir calcular el perímetro de cada polígono y otro debe
+	permitir calcular la superficie del polígono.
+-	Hacer una clase Triángulo que hereda de Polígono, que tenga una
+	sobreescritura del método que calcula superficie, especificado solo para
+	triángulos.
+-	Hacer una clase Cuadrado que hereda de Polígono, que tenga una
+	sobreescritura del método que calcula superficie, especificado solo para
+	cuadrados.
+-	Un programa principal será el encargado de instanciar los objetos definido,
+	utilizando un menú de opciones para seleccionar a cada uno de los elementos.
+*/
+//------------------------------------------------------------------------------
+// Notas:	- Guardar todos los archivos de la Evaluación en una carpeta con el
+//					nombre e22bxx31.
+//------------------------------------------------------------------------------

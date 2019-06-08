@@ -1,0 +1,153 @@
+/*CONSIGNA
+Hacer un programa que permita generar una matriz de NxM y que al azar
+cargue valores 0 (ceros) y 1 (unos). Esos valores van a representar camino
+para el cero y paredes para el uno. El programa debera encontrar todas las
+salidas del laberinto, teniendo como condicion que siempre la entrada
+esta en la primera fila y que la salida esta en la ultima fila.
+Para resolverlo es necesario utilizar una funcion recursiva.
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <time.h>
+#include <dos.h>
+
+void buscar (int **,int,int,int,int);//funcion que busca los 0 alrededor
+int **crearMatriz(int,int);//funcion para crear matriz
+void cargaMatriz(int **, int, int);//funcion para cargar la matriz
+void imprimeMatriz(int **,int,int);//funcion que imprime matriz
+
+void main(void){
+int **matriz;
+int fila=0,columna=0;
+int f=0,c=0;
+	randomize();//funcion randomize que permite generar numeros al azar
+	clrscr();//borra la pantalla
+	cprintf("Ingrese el numero de filas: ");
+	scanf("%i",&fila);//se toma el valor de cant de filas para la matriz
+	cprintf("Ingresa el numero de columnas: ");
+	scanf("%i%",&columna);//se toma el valor de cant de col para la matriz
+	matriz = crearMatriz(fila,columna);//se crea la matriz con F y C
+	cargaMatriz(matriz,fila,columna);//se carga la matriz (0s y 1s)
+	imprimeMatriz(matriz,fila,columna);//se imprime la matriz
+	//sistema de repeticion
+	for (c=0; c<=columna;c++){
+		if (matriz[0][c]==0){
+			buscar(matriz,fila,columna,f,c);
+		}
+	}
+	getch();
+}
+void buscar (int **matriz, int fila, int columna,int f,int c){
+textcolor(4);
+if (f<fila){
+	if(f>0){
+		if (matriz[f-1][c]==0){
+			matriz[f-1][c]=9;
+			buscar(matriz,fila,columna,f-1,c);
+			matriz[f-1][c]=0;
+
+			gotoxy(c*4+1,f-1+7);
+			cprintf("0");
+		}
+	}
+	if(f>0 && c<columna-1){
+		if(matriz[f-1][c+1]==0){
+			matriz[f-1][c+1]=9;
+			buscar(matriz,fila,columna,f-1,c+1);
+			matriz[f-1][c+1]=0;
+
+			gotoxy((c+1)*4+1,f-1+7);
+			cprintf("0");
+		}
+	}
+	if (c<columna-1){
+		if(matriz[f][c+1]==0){
+			matriz[f][c+1]=9;
+			buscar(matriz,fila,columna,f,c+1);
+			matriz[f][c+1]=0;
+
+			gotoxy((c+1)*4+1,f+7);
+			cprintf("0");
+		}
+	}
+	if(f<fila-1 && c<columna-1){
+		if(matriz[f+1][c+1]==0){
+			matriz[f+1][c+1]=9;
+			buscar(matriz,fila,columna,f+1,c+1);
+			matriz[f+1][c+1]=0;
+
+			gotoxy((c+1)*4+1,f+1+7);
+			cprintf("0");
+		}
+	}
+	if(f<fila-1){
+		if(matriz[f+1][c]==0){
+			matriz[f+1][c]=9;
+			buscar(matriz,fila,columna,f+1,c);
+			matriz[f+1][c]=0;
+
+			gotoxy(c*4+1,f+1+7);
+			cprintf("0");
+		}
+	}
+	if(f<fila-1 && c>0){
+		if(matriz[f+1][c-1]==0){
+			matriz[f+1][c-1]=9;
+			buscar(matriz,fila,columna,f+1,c-1);
+			matriz[f+1][c-1]=0;
+
+			gotoxy((c-1)*4+1,f+1+7);
+			cprintf("0");
+		}
+	}
+	if(c>0){
+		if(matriz[f][c-1]==0){
+			matriz[f][c-1]=9;
+			buscar(matriz,fila,columna,f,c-1);
+			matriz[f][c-1]=0;
+
+			gotoxy((c-1)*4+1,f+7);
+			cprintf("0");
+		}
+	}
+	if(f>0 && c>0){
+		if(matriz[f-1][c-1]==0){
+			matriz[f-1][c-1]=9;
+			buscar(matriz,fila,columna,f-1,c-1);
+			matriz[f-1][c-1]=0;
+
+			gotoxy((c-1)*4+1,f-1+7);
+			cprintf("0");
+		}
+	}
+}
+}
+int **crearMatriz (int fila, int columna){
+	int x;
+	int **m= malloc (sizeof (int *) * fila);
+	for (x=0;x<fila;x++){
+		m[x]= malloc(sizeof (int) * columna);
+	}
+return(m);
+}
+void cargaMatriz(int **matriz,int f,int c){
+	int fila,columna;
+	for (fila=0;fila<f;fila++){
+		for(columna=0;columna<c;columna++){
+			matriz[fila][columna]=NULL;
+		}
+	}
+	for (fila=0;fila<f;fila++){
+		for(columna=0;columna<c;columna++){
+			matriz[fila][columna]=random(2);
+		}
+	}
+}
+void imprimeMatriz (int **matriz, int f, int c){
+	int indice;
+		for (indice=0;indice<f*c;indice++){
+			gotoxy(indice%c*4+1,indice/c+7);
+			printf("%i",matriz[indice/c][indice%c]);
+		}
+}

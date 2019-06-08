@@ -1,0 +1,43 @@
+-----------------------------------------------------------------------------
+Evaluaci¢n de Laboratorio II - Grupo B (2/2)
+-----------------------------------------------------------------------------
+Enunciado:
+-----------------------------------------------------------------------------
+
+Se tienen los siguientes datos almacenados en un archivo DATA.IN con formato
+de texto plano, que representan los n£meros almacenados en una matriz, y que
+a su vez indican los colores de relleno de rect ngulos de 3x3.
+
+Se pide hacer un programa con las siguientes opciones de men£:
+
+		  1 - Cargar Datos 			(Archivo)
+		  2 - Mostrar Matriz 		(N£meros y Gr ficos)
+		  3 - Rotar Matriz 		  	(En Sentido Horario)
+		  4 - Capturar Imagenes		(Ambas)
+		  5 - Generar Mo sico 		(Ingresando el valor de ancho y alto)
+		  0 - Salir
+-----------------------------------------------------------------------------
+Notas:
+
+1) Los datos contenidos en el archivo son los siguientes:
+
+		  8
+		  8
+		  4 8 4 4 4 4 4 1
+		  8 9 8 4 4 4 1 1
+		  4 8 4 4 4 1 1 1
+		  4 4 4 4 1 1 1 1
+		  4 4 4 1 1 1 1 1
+		  4 4 1 1 1 9 9 1
+		  4 1 1 1 1 9 9 1
+		  1 1 1 1 1 1 1 1
+
+2) Guardar la evaluaci¢n bajo el nombre e22bxx22.c en su cuenta (excluyente).
+3) El Archivo DATA.IN deber  estar almacenado en la carpeta c:\temp.
+4) El mos ico esta formado por la intercalaci¢n de un gr fico de matriz
+   original y uno de matriz transpuesta, cubriendo la superficie total que
+   indic¢ el usuario. Este procedimiento debe ser recursivo.
+5) Todos los puntos deben estar desarrollados.
+-----------------------------------------------------------------------------
+
+

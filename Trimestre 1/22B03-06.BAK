@@ -1,0 +1,21 @@
+/* CONSIGNA
+Hacer un programa que permita almacenar los datos de los alumnos de la
+escuela en un archivo random, donde el registro debe tener los siguientes
+campos:
+
+DNI				 10  ##.###.###
+APELLIDO    	 20	 MAYUSCULAS
+Nombre/s		 30  Capitalizadas
+Fecha Nacimiento 10	 DD/MM/AAAA
+Curso			 02	 #ø
+Division		 02  #a
+Ciclo			 03	 AAA
+Domicilio		 50	 Capitalizadas
+Telefono		 09	 ####-####
+E-Mail			 50	 E-MAIL
+
+Ademas, debe tener un area de ingreso de texto donde se podra escribir notas
+sobre el alumno y generar un archivo secuencial de texto utilizando el dni
+sin puntos como nombre y "dat" como extension
+
+NOTA: Utilizar la rutina de validacion del practico anterior

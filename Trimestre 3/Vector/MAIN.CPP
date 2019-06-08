@@ -1,0 +1,86 @@
+#include "vector.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <conio.h>
+#include <time.h>
+#include <dos.h>
+
+void main(void){
+
+	int min,may,rep,cantelem;
+	int opc,volver;
+	int pos;
+	Vector *b=new Vector();
+	randomize();
+	clrscr();
+	printf("Desea un vector hecho por la computadora(0) o uno creado por usted(1)?\n");
+	scanf("%i",&opc);
+
+	switch(opc){
+		case 1:
+			do{
+				clrscr();
+				printf("Rango minimo: \n");
+				scanf("%i",&min);
+				printf("Rango maximo: \n");
+				scanf("%i",&may);
+				printf("Los numeros se repiten(0) o no se repiten(1)\n");
+				scanf("%i",&rep);
+				printf("La cantidad de elementos del vector \n");
+				scanf("%i",&cantelem);
+				if(min>may){
+					volver=0;
+				}else{
+					if(rep==1){
+						if((may-min)<=cantelem){
+							volver=0;
+						}else{
+							volver=1;
+						}
+					}else{
+						volver=1;
+					}
+				}
+			}while(volver==0);
+			b=new Vector(cantelem,min,may,rep);
+	}
+	opc=0;
+	do{
+		clrscr();
+		printf("1-Obtener la cantidad de elementos del vector\n");
+		printf("2-Obtener un elemento determinado del vector\n");
+		printf("3-Obtener el vector en cadena\n");
+		printf("4-Obtener el vector graficado\n");
+		printf("5-Ordenar el vector\n");
+		printf("6-Salir\n");
+		scanf("%i",&opc);
+
+			switch(opc){
+				case 1:
+					clrscr();
+					printf("La cantidad de elementos del vector es de: %i",b->obtenerCantElem());
+					getch();
+					break;
+				case 2:
+					do{
+						clrscr();
+						printf("Que posicion del vector desea ver?");
+						scanf("%i",&pos);
+					}while(!(pos>=0 && pos<(b->obtenerCantElem())));
+						printf("El numero de la posicion %i es: %i",pos,b->obtenerNumDeter(pos));
+						getch();
+					break;
+				case 3:
+						clrscr();
+						b->obtenerCadena();
+						getch();
+					break;
+				case 4:
+
+					break;
+				case 5:
+
+					break;
+			}
+	}while(opc!=6);
+}

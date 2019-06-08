@@ -1,0 +1,43 @@
+/*CONSIGNA
+Hacer un programa que permita indicar si un numero es divisible por tres,
+utilizando una funcion recursiva (int esDivisiblePorTres(int);) que recibe
+como parametro un entero y devuelve un 1 si ese numero es divisible o un
+cero si no lo es.
+
+TIP: Cuando un numero es divisible por 3 la suma de sus digitos tambien
+lo es.
+*/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <conio.h>
+
+int boolTres (int n);//funcion booleana si es divisible por tres
+
+void main(void){
+int n=0;
+clrscr();//borra pantalla
+printf("Ingrese el numero a analizar si es divisible por 3: ");
+scanf("%i", &n);//tomo el valor del numero ingresado
+	if (boolTres(n)==0){
+		printf("El numero es divisible por tres");
+	}else{
+		printf("El numero no es divisible por tres");
+	}
+getch();
+}
+int boolTres (int n){
+int a=0;
+
+a=n/100+(n/10-n/100*10)+(n-(n/10*10));
+
+	if (a/3<=3 && a%3==0){
+		return(0);
+	}else{
+		if (a/3<=3 && a%3!=0){
+			return(1);
+		}else{
+			return(boolTres(a));
+		}
+	}
+}

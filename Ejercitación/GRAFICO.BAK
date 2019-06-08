@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <graphics.h>
+
+void mover (char,int,int);
+
+void main(void){
+char tec;
+int drv=DETECT,mdo;
+int x=100,y=100;
+initgraph(&drv,&mdo,"C:\\BC\\BGI");
+cleardevice();
+pieslice(x,y,15,290,15);
+	do{
+		tec=getch();
+		mover(tec,x,y);
+	}while (tec!=13);
+closegraph();
+}
+void mover(char tec,int x, int y){
+	switch(tec){
+		case "w":{//ARRIBA
+			cleardevice();
+			pieslice(x,y+2,45,135,100);
+			break;
+		}
+		case "s":{//ABAJO
+			cleardevice();
+			pieslice(x,y-2,45,135,100);
+			break;
+		}
+		case "a":{//DERECHA
+			cleardevice();
+			pieslice(x+2,y,45,135,100);
+			break;
+		}case "d":{//IZQUIERDA
+			cleardevice();
+			pieslice(x-2,y,45,135,100);
+			break;
+		}
+	}
+}

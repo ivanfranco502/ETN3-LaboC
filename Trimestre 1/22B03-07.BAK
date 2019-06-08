@@ -1,0 +1,63 @@
+/*CONSIGNA
+Tomando como base el practico palindromo, hacer que el programa resuelva la
+verificacion y la conversion en palindromo de mandera recursiva
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <string.h>
+
+int boolPalin  (char *,int);//funcion devuelve si es palindromo
+char *(palin) (char *, int);//funcion que genera palindromo
+
+void main (void){
+char * chrpal=malloc(sizeof(char)*50);//verifica si hay espacio vector char
+clrscr();
+scanf("%s",chrpal); //se toma la palabra
+	if (boolPalin(chrpal,0)==0){ //si bool palin devuelve 0 es palindromo
+		printf("Es palindromo la palabra");
+	}else{//si bool palin devuelve 1 no es palindromo
+		printf("No es palindromo la palabra");
+		printf("\n");
+		//hace la palabra palindromo
+		//llamado a la funcion crear palindromo
+		printf("La palabra hecha palindromo es %s", palin(chrpal,0));
+	}
+getch();
+}
+
+int boolPalin(char * pal, int indice){
+int val=0;
+	if (pal[indice]!= pal[strlen(pal)-indice-1]){
+		val=1;
+	}
+	if (indice ==(strlen(pal)/2)){
+		val=0;
+	}
+return(val);
+}
+char *(palin)(char* pal, int cont){
+
+char *aux=malloc(sizeof(char)*50);
+char *fin=malloc(sizeof(char)*50);
+
+memset(aux,50,NULL);
+memset(fin,50,NULL);
+strcpy(aux,pal);
+strrev(aux);
+
+	aux[strlen(pal)-cont]=NULL;
+	if (boolPalin(aux,0)==0){
+		memset(aux,50,NULL);
+		memset(fin,50,NULL);
+		strcpy(fin,pal);
+		strncpy(aux,pal,cont);
+		aux[cont]=NULL;
+		strrev(aux);
+		strcat(fin,aux);
+
+		return(fin);
+	}
+
+return(palin(pal,cont+1));
+}
